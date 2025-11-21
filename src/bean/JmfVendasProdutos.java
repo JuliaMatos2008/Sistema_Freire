@@ -2,7 +2,7 @@ package bean;
 // Generated 29/09/2025 10:38:31 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +25,7 @@ public class JmfVendasProdutos  implements java.io.Serializable {
      private JmfProdutos jmfProdutos;
      private JmfVendas jmfVendas;
      private Integer jmfQuantidade;
-     private BigDecimal jmfValorUnitario;
+     private double jmfValorUnitario;
 
     public JmfVendasProdutos() {
     }
@@ -34,7 +34,7 @@ public class JmfVendasProdutos  implements java.io.Serializable {
     public JmfVendasProdutos(int jmfIdVendasProdutos) {
         this.jmfIdVendasProdutos = jmfIdVendasProdutos;
     }
-    public JmfVendasProdutos(int jmfIdVendasProdutos, JmfProdutos jmfProdutos, JmfVendas jmfVendas, Integer jmfQuantidade, BigDecimal jmfValorUnitario) {
+    public JmfVendasProdutos(int jmfIdVendasProdutos, JmfProdutos jmfProdutos, JmfVendas jmfVendas, Integer jmfQuantidade, double jmfValorUnitario) {
        this.jmfIdVendasProdutos = jmfIdVendasProdutos;
        this.jmfProdutos = jmfProdutos;
        this.jmfVendas = jmfVendas;
@@ -86,11 +86,11 @@ public class JmfVendasProdutos  implements java.io.Serializable {
 
     
     @Column(name="jmf_valor_unitario", precision=10)
-    public BigDecimal getJmfValorUnitario() {
+    public double getJmfValorUnitario() {
         return this.jmfValorUnitario;
     }
     
-    public void setJmfValorUnitario(BigDecimal jmfValorUnitario) {
+    public void setJmfValorUnitario(double jmfValorUnitario) {
         this.jmfValorUnitario = jmfValorUnitario;
     }
 

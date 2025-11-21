@@ -2,17 +2,16 @@ package bean;
 // Generated 29/09/2025 10:38:31 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,7 +30,7 @@ public class JmfVendas  implements java.io.Serializable {
      private JmfClientes jmfClientes;
      private JmfUsuarios jmfUsuarios;
      private Date jmfDataVendas;
-     private BigDecimal jmfTotal;
+     private double jmfTotal;
    
 
     public JmfVendas() {
@@ -41,7 +40,7 @@ public class JmfVendas  implements java.io.Serializable {
     public JmfVendas(int jmfIdVendas) {
         this.jmfIdVendas = jmfIdVendas;
     }
-    public JmfVendas(int jmfIdVendas, JmfClientes jmfClientes, JmfUsuarios jmfUsuarios, Date jmfDataVendas, BigDecimal jmfTotal) {
+    public JmfVendas(int jmfIdVendas, JmfClientes jmfClientes, JmfUsuarios jmfUsuarios, Date jmfDataVendas, double jmfTotal) {
        this.jmfIdVendas = jmfIdVendas;
        this.jmfClientes = jmfClientes;
        this.jmfUsuarios = jmfUsuarios;
@@ -94,11 +93,11 @@ public class JmfVendas  implements java.io.Serializable {
 
     
     @Column(name="jmf_total", precision=10)
-    public BigDecimal getJmfTotal() {
+    public double getJmfTotal() {
         return this.jmfTotal;
     }
     
-    public void setJmfTotal(BigDecimal jmfTotal) {
+    public void setJmfTotal(double jmfTotal) {
         this.jmfTotal = jmfTotal;
     }
 
