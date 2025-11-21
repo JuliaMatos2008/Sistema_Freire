@@ -220,6 +220,18 @@ public class JmfClientes  implements java.io.Serializable {
     }
 
 
+     @Override
+    public boolean equals(Object object) {
+        if (object instanceof JmfClientes) {
+            if (this.getJmfIdCliente()== ((JmfClientes) object).getJmfIdCliente()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 
 
 

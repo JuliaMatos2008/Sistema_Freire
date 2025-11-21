@@ -132,7 +132,16 @@ public class JmfProdutos  implements java.io.Serializable {
         this.jmfAtivo = jmfAtivo;
     }
 
+     @Override
+    public boolean equals(Object object) {
+        if (object instanceof JmfProdutos) {
+            if (this.getJmfId()== ((JmfProdutos) object).getJmfId()) {
+                return true;
+            }
+        }
 
+        return false;
+    }
 
 
 
