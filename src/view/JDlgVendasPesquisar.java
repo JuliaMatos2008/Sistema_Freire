@@ -109,9 +109,9 @@ public class JDlgVendasPesquisar extends javax.swing.JDialog {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount()== 2){
+  if (evt.getClickCount()== 2){
             jBtnOKActionPerformed(null);
-        }
+        }     
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
