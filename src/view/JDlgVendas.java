@@ -10,11 +10,12 @@ import bean.JmfUsuarios;
 import bean.JmfVendas;
 import bean.JmfVendedores;
 import dao.ClientesDAO;
+import dao.VendasDAO;
 import dao.VendedoresDAO;
 import java.util.ArrayList;
 import java.util.List;
 import tools.Util;
-import view.JDlgVendasPesquisar;
+
 
 /**
  *
@@ -22,6 +23,7 @@ import view.JDlgVendasPesquisar;
  */
 public class JDlgVendas extends javax.swing.JDialog {
     ControllerVendasProdutos controllerVendasProdutos;
+    private boolean incluir;
 
     /**
      * Creates new form JDlgPedidos
@@ -312,54 +314,49 @@ public class JDlgVendas extends javax.swing.JDialog {
         Util.habilitar(true, jTxtCodigo, jTxtTotal, jCboClientes, 
                 jCboVendedor,jFmtData, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-        Util.limpar(jTxtCodigo, jTxtTotal, jCboClientes, jCboVendedor, jFmtData);
-//        jTxtCodigo.grabFocus();
-//        incluir = true;
+        Util.Limpar(jTxtCodigo, jTxtTotal, jCboClientes, jCboVendedor, jFmtData);
+        jTxtCodigo.grabFocus();
+       incluir = true;
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-//        Util.habilitar(true, jTxtNome, jTxtApelido,
-//            jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
-//            jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
-//        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
-//        jTxtNome.grabFocus();
-//        incluir = false;
+       Util.habilitar(true, jTxtCodigo, jTxtTotal, jCboClientes, 
+                jCboVendedor,jFmtData, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        jTxtCodigo.grabFocus();
+        incluir = false;
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-//        if (Util.perguntar("Deseja Excluir?") == true) {
-//            UsuariosDAO usuariosDAO = new UsuariosDAO();
-//            usuariosDAO.delete(viewBean());
-//
-//        }
-//        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido,
-//            jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
-//            jCboNivel, jChbAtivo);
+       if (Util.perguntar("Deseja Excluir?") == true) {
+            VendasDAO vendasDAO = new VendasDAO();
+           vendasDAO.delete(viewBean());
+        }
+        Util.Limpar(jTxtCodigo, jTxtCodigo, jTxtTotal, jCboClientes, 
+                jCboVendedor,jFmtData);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-//        UsuariosDAO usuariosDAO = new UsuariosDAO();
-//        if (incluir == true){
-//            usuariosDAO.insert(viewBean());
-//        }else {
-//            usuariosDAO.update(viewBean());
-//        }
-//
-//        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido,
-//            jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
-//            jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
-//        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        VendasDAO vendasDAO = new VendasDAO();
+        if (incluir == true){
+           vendasDAO.insert(viewBean());
+       }else {
+            vendasDAO.update(viewBean());
+        }
+
+       Util.habilitar(false,jTxtCodigo, jTxtTotal, jCboClientes, 
+                jCboVendedor,jFmtData, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-//        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido,
-//            jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
-//            jCboNivel, jChbAtivo, jBtnConfirmar, jBtnCancelar);
-//        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
+        Util.habilitar(false, jTxtCodigo, jTxtTotal, jCboClientes, 
+                jCboVendedor,jFmtData, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed

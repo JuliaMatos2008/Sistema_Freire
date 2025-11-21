@@ -91,7 +91,7 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
             }
         });
 
-        jBtnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok_1.png"))); // NOI18N
+        jBtnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ok.png"))); // NOI18N
         jBtnOk.setText("Ok");
         jBtnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +99,7 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
             }
         });
 
-        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
+        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
         jBtnCancelar.setText("Cancelar");
         jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +175,7 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
         jmfVendasProdutos.setJmfProdutos((JmfProdutos) jCboProdutos.getSelectedItem());
         jmfVendasProdutos.setJmfQuantidade(Util.strToInt(jTxtQuantidade.getText()));
         jmfVendasProdutos.setJmfValorUnitario(Util.strToDouble(jTxtValorUnitario.getText()));
-        jDlgVendas.controllerVendasProdutos.addBean(vendasProdutos);
+        jDlgVendas.controllerVendasProdutos.addBean(jmfVendasProdutos);
         setVisible(false);
     }//GEN-LAST:event_jBtnOkActionPerformed
 
@@ -186,18 +186,18 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
 
     private void jCboProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboProdutosActionPerformed
         // TODO add your handling code here:
-        JmfProdutos produtos = (JmfProdutos) jCboJmfProdutos.getSelectedItem();
-        jTxtValorUnitario.setText(Util.doubleToStr(produtos.getValorUnitario()));
+        JmfProdutos produtos = (JmfProdutos) jCboProdutos.getSelectedItem();
+        jTxtValorUnitario.setText(Util.doubleToStr(produtos.getJmfPreco()));
         int quant = Util.strToInt(jTxtQuantidade.getText());
-        jTxtTotal.setText(Util.doubleToStr(quant * produtos.getValorUnitario()));  
+        jTxtTotal.setText(Util.doubleToStr(quant * produtos.getJmfPreco()));  
     }//GEN-LAST:event_jCboProdutosActionPerformed
 
     private void jTxtQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtQuantidadeKeyReleased
         // TODO add your handling code here:
         if(jTxtQuantidade.getText().isEmpty()== false){
-        JmfProdutos produtos = (JmfProdutos) jCboJmfProdutos.getSelectedItem();
+        JmfProdutos produtos = (JmfProdutos) jCboProdutos.getSelectedItem();
         int quant = Util.strToInt(jTxtQuantidade.getText());
-        jTxtTotal.setText(Util.doubleToStr(quant * produtos.getValorUnitario())); 
+        jTxtTotal.setText(Util.doubleToStr(quant * produtos.getJmfPreco())); 
         } else {
         jTxtTotal.setText("");
         }
@@ -220,29 +220,27 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDlgVendasJmfProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendasProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDlgVendasJmfProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendasProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDlgVendasJmfProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendasProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDlgVendasJmfProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgVendasProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JDlgVendasJmfProdutos dialog = new JDlgVendasJmfProdutos(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            JDlgVendasProdutos dialog = new JDlgVendasProdutos(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 
