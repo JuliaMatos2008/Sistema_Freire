@@ -132,6 +132,18 @@ public class JmfUsuarios  implements java.io.Serializable {
     public void setJmfAtivo(String jmfAtivo) {
         this.jmfAtivo = jmfAtivo;
     }
+    
+     @Override
+    public boolean equals(Object object) {
+        if (object instanceof JmfUsuarios) {
+            if (this.getJmfIdusuarios()== ((JmfUsuarios) object).getJmfIdusuarios()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
 
 

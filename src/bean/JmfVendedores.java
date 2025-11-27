@@ -177,17 +177,7 @@ public class JmfVendedores  implements java.io.Serializable {
         this.jmfAtivo = jmfAtivo;
     }
     
-     @Override
-    public boolean equals(Object object) {
-        if (object instanceof JmfVendedores) {
-            if (this.getJmfIdVendedor()== ((JmfVendedores) object).getJmfIdVendedor()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
+    
 
 
 

@@ -36,6 +36,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMnClientes = new javax.swing.JMenuItem();
         jMnVendedor = new javax.swing.JMenuItem();
         jMnProdutos = new javax.swing.JMenuItem();
+        jMnVendas = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMnSair = new javax.swing.JMenuItem();
         jMnMovimento = new javax.swing.JMenu();
@@ -84,6 +85,16 @@ public class JFrmPrincipal extends javax.swing.JFrame {
             }
         });
         jMnCadastro.add(jMnProdutos);
+
+        jMnVendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        jMnVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
+        jMnVendas.setText("Vendas");
+        jMnVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnVendasActionPerformed(evt);
+            }
+        });
+        jMnCadastro.add(jMnVendas);
         jMnCadastro.add(jSeparator1);
 
         jMnSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
@@ -147,6 +158,12 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMnSairActionPerformed
 
+    private void jMnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnVendasActionPerformed
+        // TODO add your handling code here:
+        JDlgVendas jDlgVendas = new JDlgVendas(null, true);
+        jDlgVendas.setVisible(true);
+    }//GEN-LAST:event_jMnVendasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -190,6 +207,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMnProdutos;
     private javax.swing.JMenuItem jMnSair;
     private javax.swing.JMenuItem jMnUsuarios;
+    private javax.swing.JMenuItem jMnVendas;
     private javax.swing.JMenuItem jMnVendedor;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables

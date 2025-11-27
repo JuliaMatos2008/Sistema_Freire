@@ -19,6 +19,7 @@ public class ControllerVendasProdutos extends AbstractTableModel {
 
     public void setList(List lstVendasProdutos) {
         this.lstPedProd = lstVendasProdutos;
+        this.fireTableDataChanged();
     }
     
     public JmfVendasProdutos getBean(int rowIndex) {

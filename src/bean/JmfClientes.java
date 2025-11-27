@@ -226,6 +226,7 @@ public class JmfClientes  implements java.io.Serializable {
             if (this.getJmfIdCliente()== ((JmfClientes) object).getJmfIdCliente()) {
                 return true;
             }
+           
         }
 
         return false;
