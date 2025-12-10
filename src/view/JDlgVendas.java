@@ -17,6 +17,7 @@ import dao.VendasProdutosDAO;
 import dao.VendedoresDAO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 import tools.Util;
 
 
@@ -54,6 +55,11 @@ public class JDlgVendas extends javax.swing.JDialog {
         controllerVendasProdutos.setList(new ArrayList());
         jTable1.setModel(controllerVendasProdutos);
     }
+    
+    public JTable getjTable1() {
+        return jTable1;
+    }
+    
     public JmfVendas viewBean(){
         JmfVendas jmfVendas = new JmfVendas();
         jmfVendas.setJmfIdVendas(Util.strToInt(jTxtCodigo.getText()));
@@ -387,14 +393,15 @@ public class JDlgVendas extends javax.swing.JDialog {
     private void jBtnIncluirProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirProdActionPerformed
         // TODO add your handling code here:
         JDlgVendasProdutos jDlgVendasProdutos = new JDlgVendasProdutos(null, true);
-        jDlgVendasProdutos.setTelaAnterior(this);
+        jDlgVendasProdutos.setTelaAnterior(this, null);
         jDlgVendasProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnIncluirProdActionPerformed
 
     private void jBtnAlterarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarProdActionPerformed
         // TODO add your handling code here:
          JDlgVendasProdutos jDlgVendasProdutos = new JDlgVendasProdutos(null, true);
-         jDlgVendasProdutos.setTelaAnterior(this);
+         JmfVendasProdutos jmfVendasProdutos = controllerVendasProdutos.getBean(jTable1.getSelectedRow());
+         jDlgVendasProdutos.setTelaAnterior(this, jmfVendasProdutos);
         jDlgVendasProdutos.setVisible(true);
     }//GEN-LAST:event_jBtnAlterarProdActionPerformed
 

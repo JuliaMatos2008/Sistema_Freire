@@ -16,7 +16,8 @@ import tools.Util;
  * @author u07880060103
  */
 public class JDlgVendasProdutos extends javax.swing.JDialog {
-    JDlgVendas jDlgVendas;
+     JDlgVendas jDlgVendas;
+        private boolean incluir;
 
     /**
      * Creates new form JDlgVendasJmfProdutos
@@ -35,8 +36,14 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
         }
     }
  
-    public void setTelaAnterior(JDlgVendas jDlgVendas){
+    public void setTelaAnterior(JDlgVendas jDlgVendas, JmfVendasProdutos jmfVendasProdutos){
     this.jDlgVendas = jDlgVendas;
+     incluir = true;
+        if(jmfVendasProdutos != null){
+        incluir = false;
+        jCboProdutos.setSelectedItem(jmfVendasProdutos.getJmfProdutos());
+        jTxtQuantidade.setText(Util.intToStr(jmfVendasProdutos.getJmfQuantidade()));
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -170,13 +177,16 @@ public class JDlgVendasProdutos extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-        JmfVendasProdutos jmfVendasProdutos = new JmfVendasProdutos();
-        //pedidosJmfProdutos.setPedidos();
+         JmfVendasProdutos jmfVendasProdutos = new JmfVendasProdutos();
+        //pedidosProdutos.setPedidos();
         jmfVendasProdutos.setJmfProdutos((JmfProdutos) jCboProdutos.getSelectedItem());
         jmfVendasProdutos.setJmfQuantidade(Util.strToInt(jTxtQuantidade.getText()));
         jmfVendasProdutos.setJmfValorUnitario(Util.strToDouble(jTxtValorUnitario.getText()));
         jDlgVendas.controllerVendasProdutos.addBean(jmfVendasProdutos);
         setVisible(false);
+         if (incluir == false){
+            jDlgVendas.controllerVendasProdutos.removeBean(jDlgVendas.getjTable1().getSelectedRow());
+        }
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
