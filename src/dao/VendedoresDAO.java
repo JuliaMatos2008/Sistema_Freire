@@ -45,13 +45,43 @@ public class VendedoresDAO extends AbstractDAO{
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmfVendedores.class);
-        criteria.add(Restrictions.eq("jmfIdVendedores", codigo));
+        criteria.add(Restrictions.eq("jmfIdVendedor", codigo));
         List lista = criteria.list();
         session.getTransaction(). commit();
         return lista;
 
         
+
     }
+   public List<JmfVendedores> listNome(String nome) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(JmfVendedores.class);
+    criteria.add(Restrictions.like("jmfNome", "%" + nome + "%"));
+    List<JmfVendedores> lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
+
+public List<JmfVendedores> listValor(String ativo) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(JmfVendedores.class);
+    criteria.add(Restrictions.eq("jmfAtivo", ativo)); 
+    List<JmfVendedores> lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
+
+public List<JmfVendedores> listNomeValor(String nome, String ativo) {
+    session.beginTransaction();
+    Criteria criteria = session.createCriteria(JmfVendedores.class);
+    criteria.add(Restrictions.like("jmfNome", "%" + nome + "%"));
+    criteria.add(Restrictions.eq("jmfAtivo", ativo)); 
+    List<JmfVendedores> lista = criteria.list();
+    session.getTransaction().commit();
+    return lista;
+}
+
+
 
     @Override
     public Object listAll() {

@@ -23,14 +23,15 @@ public class VendasDAO extends AbstractDAO{
         session.getTransaction(). commit();
     }
 
-    @Override
-    public void update(Object object) {
-        session.beginTransaction();
-        session.update(object);
-        session.getTransaction(). commit();
-        session.flush();
-        session.clear();
-    }
+  @Override
+public void update(Object object) {
+    session.beginTransaction();
+    session.merge(object);  
+    session.getTransaction().commit();
+    session.flush();
+    session.clear();
+}
+
 
     @Override
     public void delete(Object object) {
@@ -51,6 +52,32 @@ public class VendasDAO extends AbstractDAO{
         return lista;
 
         
+    }
+    
+      public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmfVendas.class);
+        criteria.add(Restrictions.like("jmfClientes", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    public Object listValor(double valorTotal) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmfVendas.class);
+        criteria.add(Restrictions.ge("jmfTotal", valorTotal));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+     public Object listNomeValor(String nome, double valorTotal) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmfVendas.class);
+        criteria.add(Restrictions.like("jmfClientes", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("jmfTotal", valorTotal));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
     }
 
     @Override
