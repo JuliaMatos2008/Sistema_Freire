@@ -46,6 +46,9 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://10.7.0.51:33062/db_julia_freire?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">julia_freire</property>
     <property name="hibernate.connection.password">julia_freire</property>
+<!--        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3307/db_julia_freire?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>-->
     <mapping class="bean.JmfVendasProdutos"/>
     <mapping class="bean.JmfClientes"/>
     <mapping class="bean.JmfProdutos"/>

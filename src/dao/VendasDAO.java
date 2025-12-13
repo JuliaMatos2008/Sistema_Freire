@@ -52,6 +52,32 @@ public class VendasDAO extends AbstractDAO{
 
         
     }
+    
+      public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmfVendas.class);
+        criteria.add(Restrictions.like("jmfClientes", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    public Object listValor(double valorTotal) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmfVendas.class);
+        criteria.add(Restrictions.ge("jmfTotal", valorTotal));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+     public Object listNomeValor(String nome, double valorTotal) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmfVendas.class);
+        criteria.add(Restrictions.like("jmfClientes", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("jmfTotal", valorTotal));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     @Override
     public Object listAll() {
