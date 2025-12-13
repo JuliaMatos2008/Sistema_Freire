@@ -27,7 +27,11 @@ public class JDlgConsultaVendas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+<<<<<<< HEAD
         setTitle("Pesquisar vendas");
+=======
+        setTitle("Pesquisar Usuários");
+>>>>>>> bc98436599fe32ace96578ca2cec3dd16487d95f
         controllerConsultasVendas= new ControllerConsultasVendas();
        vendasDAO = new VendasDAO();
         List lista = (List) vendasDAO.listAll();

@@ -39,7 +39,10 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMnSair = new javax.swing.JMenuItem();
         jMnMovimento = new javax.swing.JMenu();
+<<<<<<< HEAD
         jMnVendas = new javax.swing.JMenuItem();
+=======
+>>>>>>> bc98436599fe32ace96578ca2cec3dd16487d95f
         jMenu1 = new javax.swing.JMenu();
         jMnuProdutos = new javax.swing.JMenuItem();
         jMnuClientes = new javax.swing.JMenuItem();
@@ -119,7 +122,10 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMnMovimento);
 
+<<<<<<< HEAD
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
+=======
+>>>>>>> bc98436599fe32ace96578ca2cec3dd16487d95f
         jMenu1.setText("Consultas");
 
         jMnuProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N

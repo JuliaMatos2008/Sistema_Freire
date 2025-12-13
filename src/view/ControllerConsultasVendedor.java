@@ -47,7 +47,11 @@ public class ControllerConsultasVendedor extends AbstractTableModel {
             return jmfVendedores.getJmfNome();
         }
         if (columnIndex == 2){
+<<<<<<< HEAD
             return jmfVendedores.getJmfAtivo();
+=======
+            return jmfVendedores.getJmfCpf();
+>>>>>>> bc98436599fe32ace96578ca2cec3dd16487d95f
         
         }
         return "";
@@ -58,7 +62,11 @@ public class ControllerConsultasVendedor extends AbstractTableModel {
     public String getColumnName (int column) {
         if (column == 0) return "Código";
         if (column == 1) return "Nome";
+<<<<<<< HEAD
         if (column == 2) return "Ativo";
+=======
+        if (column == 2) return "Cpf";
+>>>>>>> bc98436599fe32ace96578ca2cec3dd16487d95f
         return "";
     }
     
