@@ -55,7 +55,11 @@ public class ClientesDAO extends AbstractDAO{
  public Object listNome(String nome) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmfClientes.class);
+<<<<<<< HEAD
         criteria.add(Restrictions.like("jmfNome", "%" + nome + "%"));
+=======
+        criteria.add(Restrictions.like("nome", "%" + nome + "%"));
+>>>>>>> 210de04fcefc1d3f2b1722bfae5cea51a31e4592
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -63,7 +67,11 @@ public class ClientesDAO extends AbstractDAO{
     public Object listCpf(String cpf) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmfClientes.class);
+<<<<<<< HEAD
         criteria.add(Restrictions.ge("jmfCpf", cpf));
+=======
+        criteria.add(Restrictions.ge("cpf", cpf));
+>>>>>>> 210de04fcefc1d3f2b1722bfae5cea51a31e4592
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -71,8 +79,13 @@ public class ClientesDAO extends AbstractDAO{
      public Object listNomeCpf(String nome, String cpf) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmfClientes.class);
+<<<<<<< HEAD
         criteria.add(Restrictions.like("jmfNome", "%" + nome + "%"));
         criteria.add(Restrictions.ge("jmfCpf", cpf));
+=======
+        criteria.add(Restrictions.like("nome", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("cpf", cpf));
+>>>>>>> 210de04fcefc1d3f2b1722bfae5cea51a31e4592
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
